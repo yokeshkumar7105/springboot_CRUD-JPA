@@ -31,8 +31,23 @@ public class StudentController {
         return "Added!";
     }
 
+    @PutMapping("/students")
+    public String updateStudent(@RequestBody Student student){
+        service.updateStudent(student);
+        return "Updated!";
+    }
 
+    @DeleteMapping("/students/{rno}")
+    public String deleteByRno(@PathVariable("rno") int rno){
+        service.deleteByRno(rno);
+        return "Deleted!";
+    }
 
+    @DeleteMapping("/students/clear")
+    public String deleteAllStudents(){
+        service.deleteAllStudents();
+        return "Deleted all the students!";
+    }
 
 
 }
