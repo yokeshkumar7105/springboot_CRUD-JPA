@@ -25,4 +25,16 @@ public class StudentService {
     public Student getStudentByRno(int rno) {
         return repo.findById(rno).orElse(new Student());
     }
+
+    public void updateStudent(Student student) {
+        repo.save(student);
+    }
+
+    public void deleteByRno(int rno) {
+        repo.deleteById(rno);
+    }
+
+    public void deleteAllStudents() {
+        repo.deleteAll();
+    }
 }
